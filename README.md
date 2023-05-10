@@ -43,3 +43,35 @@ kubectl create deployment nginx --image=nginx
 ```shell
 kubectl create deploy httpd-frontend --image=httpd:2.4-alpine --replicas=3 --dry-run=client -o yaml > deploy.yaml
 ```
+
+- Scale Deployment
+```shell
+kubectl scale deployment nginx --replicas=4
+```
+
+- Change image tag of Deployment
+```shell
+kubectl set image deployment nginx nginx=nginx:1.18
+```
+
+### Service Commands
+
+- Create Service
+```shell
+kubectl expose pod redis --port=6379 --name=redis-service
+```
+```shell
+kubectl expose deployment redis --port=6379 --name=redis-service
+```
+
+### Kube config
+
+- Get current context
+```shell
+kubectl config current-context
+```
+
+- Set context and namespace
+```shell
+kubectl config set-context $(kubectl config current-context) --namespace=dev
+```
