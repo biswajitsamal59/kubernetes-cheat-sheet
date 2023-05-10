@@ -22,6 +22,11 @@ kubectl edit pod nginx
 kubectl delete pod nginx nginx1 nginx2
 ```
 
+- Count number of pods running with a certain label
+```shell
+kubectl get pod --selector env=dev,tier=frontend --no-headers | wc -l
+```
+
 ### ReplicaSet Commands
 
 - Scale ReplicaSet object without modifying the yaml file
