@@ -71,7 +71,12 @@ kubectl expose deployment redis --port=6379 --name=redis-service
 kubectl config current-context
 ```
 
-- Set context and namespace
+- Set context and namespace (this not used to change or switch current context)
 ```shell
 kubectl config set-context $(kubectl config current-context) --namespace=dev
+```
+
+- Switch context
+```shell
+kubectl config use-context dev-aks
 ```
