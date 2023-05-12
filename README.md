@@ -85,3 +85,32 @@ kubectl config set-context $(kubectl config current-context) --namespace=dev
 ```shell
 kubectl config use-context dev-aks
 ```
+
+### Taints and toleration commands
+
+- Create taints on a node
+```shell
+kubectl taint nodes node01 app=frontend:NoSchedule
+```
+
+- Untaint the node
+```shell
+kubectl taint nodes node01 app=frontend:NoSchedule-
+```
+
+### Rolling updates and Rollback commands
+
+- Check rollout status
+```shell
+kubectl rollout status deployment/myapp-deploy
+```
+
+- Check rollout history
+```shell
+kubectl rollout history deployment/myapp-deploy
+```
+
+- Rollback to previous revision
+```shell
+kubectl rollout undo deployment/myapp-deploy
+```
